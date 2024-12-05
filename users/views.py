@@ -24,8 +24,12 @@ def home(request):
 
 @login_required
 def home(request):
-    # Verificar si el usuario ya tiene un número de departamento
+    # Obtener el perfil del usuario actual
     user_profile = request.user.profile
+
+    # Filtrar los pagos relacionados con el usuario y su número de departamento
+    pagos = PagoComun.objects.filter(usuario=request.user, num_departamento__num_departamento=user_profile.num_departamento)
+    print("Pagos encontrados: ", pagos)  # Esto imprimirá el queryset de los pagos en la consola
 
     if request.method == 'POST':
         form = NumDepartamentoForm(request.POST, instance=user_profile)
@@ -35,4 +39,8 @@ def home(request):
     else:
         form = NumDepartamentoForm(instance=user_profile)
 
-    return render(request, 'users/home.html', {'form': form, 'user_profile': user_profile})
+    return render(request, 'users/home.html', {
+        'form': form,
+        'user_profile': user_profile,
+        'pagos': pagos
+    })
