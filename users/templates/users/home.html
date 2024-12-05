@@ -16,104 +16,109 @@
     </p>
 
     {% if user.is_superuser %}
-        <br><br><p style="text-align: center;">
-            <a href="/admin/" style="background-color: #007bff; color: white; padding: 10px; text-decoration: none; border-radius: 5px;">Ir al Admin</a>
-        </p> <br> <br>
+    <br><br><p style="text-align: center;">
+        <a href="/admin/" style="background-color: #007bff; color: white; padding: 10px; text-decoration: none; border-radius: 5px;">Ir al Admin</a>
+    </p> <br> <br>
 
-        <h2>Pagos Pendientes</h2>
-        {% if pagos_pendientes %}
-            <table border="1" style="width: 100%; text-align: center;">
-                <tr>
-                    <th>Descripción</th>
-                    <th>Monto</th>
-                    <th>Mes de Pago</th>
-                    <th>Departamento</th>
-                </tr>
-                {% for pago in pagos_pendientes %}
-                    <tr>
-                        <td>{{ pago.descripcion }}</td>
-                        <td>${{ pago.monto }}</td>
-                        <td>{{ pago.mes_pago }}</td>
-                        <td>{{ pago.num_departamento }}</td>
-                    </tr>
-                {% endfor %}
-            </table>
-        {% else %}
-            <p style="text-align: center;">No hay pagos pendientes.</p> <br>
-        {% endif %}
-
-        <h2>Usuarios</h2>
+    <h2>Pagos Pendientes</h2>
+    {% if pagos_pendientes %}
         <table border="1" style="width: 100%; text-align: center;">
             <tr>
-                <th>Usuario</th>
-                <th>Número de Departamento</th>
+                <th>Descripción</th>
+                <th>Monto</th>
+                <th>Mes de Pago</th>
+                <th>Departamento</th>
             </tr>
-            {% for usuario in usuarios %}
+            {% for pago in pagos_pendientes %}
                 <tr>
-                    <td>{{ usuario.username }}</td>
-                    <td>{{ usuario.profile.num_departamento }}</td>
+                    <td>{{ pago.descripcion }}</td>
+                    <td>${{ pago.monto }}</td>
+                    <td>{{ pago.mes_pago }}</td>
+                    <td>{{ pago.num_departamento }}</td>
                 </tr>
             {% endfor %}
         </table>
-    
     {% else %}
-        <br><br><h2>Mis Pagos</h2>
-
-        <div style="text-align: center;">
-            <h3>Pagos Pendientes</h3>
-            {% if pagos_pendientes %}
-                <table border="1" style="width: 100%; text-align: center;">
-                    <tr>
-                        <th>Descripción</th>
-                        <th>Monto</th>
-                        <th>Mes de Pago</th>
-                    </tr>
-                    {% for pago in pagos_pendientes %}
-                        <tr>
-                            <td>{{ pago.descripcion }}</td>
-                            <td>${{ pago.monto }}</td>
-                            <td>{{ pago.mes_pago }}</td>
-                        </tr>
-                    {% endfor %}
-                </table>
-            {% else %}
-                <p>No hay pagos pendientes.</p>
-            {% endif %}
-
-            <br> <br><h3>Pagos Realizados</h3>
-            {% if pagos_realizados %}
-                <table border="1" style="width: 100%; text-align: center;">
-                    <tr>
-                        <th>Descripción</th>
-                        <th>Fecha de Pago</th>
-                    </tr>
-                    {% for pago in pagos_realizados %}
-                        <tr>
-                            <td>{{ pago.descripcion }}</td>
-                            <td>{{ pago.fecha_creacion|date:"d/m" }}</td>
-                        </tr>
-                    {% endfor %}
-                </table>
-            {% else %}
-                <p>No has realizado pagos aún.</p>
-            {% endif %}
-        </div>
+        <p style="text-align: center;">No hay pagos pendientes.</p> <br>
     {% endif %}
 
-    <br><br><br><br><br><br><br>
-    {% if user_profile.num_departamento == "Desconocido" %}
-    <div class="card">
-        <h2>Ingresa tu número de departamento:</h2>
-        <form method="POST">
-            {% csrf_token %}
-            {{ form.as_p }}
-            <button type="submit">Guardar</button>
-        </form>
-    </div>
+    <h2>Usuarios</h2>
+    <table border="1" style="width: 100%; text-align: center;">
+        <tr>
+            <th>Usuario</th>
+            <th>Número de Departamento</th>
+        </tr>
+        {% for usuario in usuarios %}
+            <tr>
+                <td>{{ usuario.username }}</td>
+                <td>{{ usuario.profile.num_departamento }}</td>
+            </tr>
+        {% endfor %}
+    </table>
+
+{% else %}
+   <br> <br> <h2>Mis Pagos</h2>
+
+<div style="text-align: center;">
+    <h3>Pagos Pendientes</h3>
+    {% if pagos_pendientes %}
+        <table border="1" style="width: 100%; text-align: center;">
+            <tr>
+                <th>Descripción</th>
+                <th>Monto</th>
+                <th>Mes de Pago</th>
+            </tr>
+            {% for pago in pagos_pendientes %}
+                <tr>
+                    <td>{{ pago.descripcion }}</td>
+                    <td>${{ pago.monto }}</td>
+                    <td>{{ pago.mes_pago }}</td>
+                </tr>
+            {% endfor %}
+        </table>
     {% else %}
-    <div class="card">
-        <h2>Tu número de departamento es: {{ user_profile.num_departamento }}</h2>
-    </div>
+        <p>No hay pagos pendientes.</p>
     {% endif %}
+
+    <br> <br><h3>Pagos Realizados</h3>
+    {% if pagos_realizados %}
+        <table border="1" style="width: 100%; text-align: center;">
+            <tr>
+                <th>Descripción</th>
+                <th>Fecha de Pago</th>
+            </tr>
+            {% for pago in pagos_realizados %}
+                <tr>
+                    <td>{{ pago.descripcion }}</td>
+                    <td>{{ pago.fecha_pago|date:"d/m" }}</td>
+                </tr>
+            {% endfor %}
+        </table>
+    {% else %}
+        <p>No has realizado pagos aún.</p>
+    {% endif %}
+{% endif %}
+
+
+<br><br><br><br><br><br><br>
+{% if user_profile.num_departamento == "Desconocido" %}
+<div class="card">
+    <h2>Ingresa tu número de departamento:</h2>
+    <form method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Guardar</button>
+    </form>
+</div>
+{% else %}
+<div class="card">
+    <h2>Tu número de departamento es: {{ user_profile.num_departamento }}</h2>
+</div>
+{% endif %}
+
+
+
+
+</div>
 </body>
 </html>

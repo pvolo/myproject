@@ -23,10 +23,9 @@ class PagoComun(models.Model):
     num_departamento = models.ForeignKey('UserProfile', on_delete=models.CASCADE)  # Asociamos al UserProfile
     usuario = models.ForeignKey(User, on_delete=models.CASCADE, null=True, blank=True)
     fecha_creacion = models.DateTimeField(auto_now_add=True)
-    fecha_pago = models.DateTimeField(null=True, blank=True)
 
     def __str__(self):
-        return f"Pago {self.descripcion} para {self.usuario.username}"
+        return f"{self.descripcion} - {self.mes_pago}"
 
     class Meta:
         verbose_name = 'Pago Común'
