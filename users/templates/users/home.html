@@ -59,8 +59,10 @@
                     <th>Descripción</th>
                     <th>Monto</th>
                     <th>Mes de Pago</th>
-                    <th>Fecha de Creación</th>
+                    <th>Fecha de Cobro</th>
                     <th>Usuario</th>
+                    <th> OPCIONES </th>
+
                 </tr>
                 {% for pago in pagos %}
                     {% if not pago.fecha_pago %}
@@ -68,8 +70,11 @@
                             <td>{{ pago.descripcion }}</td>
                             <td>${{ pago.monto }}</td>
                             <td>{{ pago.mes_pago }}</td>
-                            <td>{{ pago.fecha_creacion|date:"d/m/Y H:i" }}</td>
+                            <td>{{ pago.fecha_creacion|date:"d/m/Y" }}</td>
                             <td>{{ pago.usuario.username }}</td>
+                            <td>
+                                <a href="{% url 'realizar_pago' pago.id %}" style="background-color: #007bff; color: white; padding: 5px 10px; text-decoration: none; border-radius: 5px;">Pagar</a>
+                            </td>
                         </tr>
                     {% endif %}
                 {% endfor %}
@@ -79,27 +84,7 @@
         {% endif %}
         
         <br><br>
-        <h3>Pagos Realizados</h3>
-        {% if pagos %}
-            <table border="1" style="width: 100%; text-align: center;">
-                <tr>
-                    <th>Descripción</th>
-                    <th>Fecha de Pago</th>
-                    <th>Usuario</th>
-                </tr>
-                {% for pago in pagos %}
-                    {% if pago.fecha_pago %}
-                        <tr>
-                            <td>{{ pago.descripcion }}</td>
-                            <td>{{ pago.fecha_pago|date:"d/m" }}</td>
-                            <td>{{ pago.usuario.username }}</td>
-                        </tr>
-                    {% endif %}
-                {% endfor %}
-            </table>
-        {% else %}
-            <p>No has realizado pagos aún.</p>
-        {% endif %}
+
     {% endif %}
 
     <br><br><br><br><br><br><br>

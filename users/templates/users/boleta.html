@@ -1,0 +1,41 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="{% static 'users/css/styles.css' %}">
+    <title>Boleta de Pago</title>
+    <style>
+        .button {
+            background-color: #007bff;
+            color: white;
+            padding: 10px 15px;
+            text-decoration: none;
+            border-radius: 5px;
+            border: none;
+        }
+    </style>
+</head>
+<body>
+    <h1>Boleta de Pago</h1>
+    <p>El pago se ha realizado exitosamente. Aquí está el detalle:</p>
+    <table border="1" style="width: 100%; text-align: center;">
+        <tr>
+            <th>Descripción</th>
+            <th>Monto</th>
+            <th>Mes de Pago</th>
+            <th>Departamento</th>
+        </tr>
+        <tr>
+            <td>{{ descripcion }}</td>
+            <td>${{ monto }}</td>
+            <td>{{ mes_pago }}</td>
+            <td>{{ num_departamento }}</td>
+        </tr>
+    </table>
+
+    <br>
+    <button class="button" onclick="window.print()">Imprimir Boleta</button>
+    <br><br>
+    <a href="{% url 'home' %}" class="button">Volver al Inicio</a>
+</body>
+</html>
