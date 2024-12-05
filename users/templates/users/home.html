@@ -57,48 +57,48 @@
         </table>
     
     {% else %}
-       <br> <br> <h2>Mis Pagos</h2>
+        <br><br><h2>Mis Pagos</h2>
 
-    <div style="text-align: center;">
-        <h3>Pagos Pendientes</h3>
-        {% if pagos_pendientes %}
-            <table border="1" style="width: 100%; text-align: center;">
-                <tr>
-                    <th>Descripción</th>
-                    <th>Monto</th>
-                    <th>Mes de Pago</th>
-                </tr>
-                {% for pago in pagos_pendientes %}
+        <div style="text-align: center;">
+            <h3>Pagos Pendientes</h3>
+            {% if pagos_pendientes %}
+                <table border="1" style="width: 100%; text-align: center;">
                     <tr>
-                        <td>{{ pago.descripcion }}</td>
-                        <td>${{ pago.monto }}</td>
-                        <td>{{ pago.mes_pago }}</td>
+                        <th>Descripción</th>
+                        <th>Monto</th>
+                        <th>Mes de Pago</th>
                     </tr>
-                {% endfor %}
-            </table>
-        {% else %}
-            <p>No hay pagos pendientes.</p>
-        {% endif %}
+                    {% for pago in pagos_pendientes %}
+                        <tr>
+                            <td>{{ pago.descripcion }}</td>
+                            <td>${{ pago.monto }}</td>
+                            <td>{{ pago.mes_pago }}</td>
+                        </tr>
+                    {% endfor %}
+                </table>
+            {% else %}
+                <p>No hay pagos pendientes.</p>
+            {% endif %}
 
-        <br> <br><h3>Pagos Realizados</h3>
-        {% if pagos_realizados %}
-            <table border="1" style="width: 100%; text-align: center;">
-                <tr>
-                    <th>Descripción</th>
-                    <th>Fecha de Pago</th>
-                </tr>
-                {% for pago in pagos_realizados %}
+            <br> <br><h3>Pagos Realizados</h3>
+            {% if pagos_realizados %}
+                <table border="1" style="width: 100%; text-align: center;">
                     <tr>
-                        <td>{{ pago.descripcion }}</td>
-                        <td>{{ pago.fecha_pago|date:"d/m" }}</td>
+                        <th>Descripción</th>
+                        <th>Fecha de Pago</th>
                     </tr>
-                {% endfor %}
-            </table>
-        {% else %}
-            <p>No has realizado pagos aún.</p>
-        {% endif %}
+                    {% for pago in pagos_realizados %}
+                        <tr>
+                            <td>{{ pago.descripcion }}</td>
+                            <td>{{ pago.fecha_creacion|date:"d/m" }}</td>
+                        </tr>
+                    {% endfor %}
+                </table>
+            {% else %}
+                <p>No has realizado pagos aún.</p>
+            {% endif %}
+        </div>
     {% endif %}
-
 
     <br><br><br><br><br><br><br>
     {% if user_profile.num_departamento == "Desconocido" %}
@@ -115,10 +115,5 @@
         <h2>Tu número de departamento es: {{ user_profile.num_departamento }}</h2>
     </div>
     {% endif %}
-
-
-
-
-</div>
 </body>
 </html>
