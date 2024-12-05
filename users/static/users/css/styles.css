@@ -115,3 +115,112 @@ form input[type="submit"]:hover {
 }
 
 
+/* Estilos para las tablas */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    background-color: #fff;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+table th,
+table td {
+    padding: 12px 15px;
+    border: 1px solid #ddd;
+    text-align: left;
+}
+
+table th {
+    background-color: #007bff;
+    color: white;
+    font-weight: bold;
+}
+
+table tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+table tr:hover {
+    background-color: #f1f1f1;
+    cursor: pointer;
+}
+
+table td {
+    font-size: 16px;
+    color: #333;
+}
+
+/* Estilos para el formulario de número de departamento */
+form input[type="text"] {
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    transition: border-color 0.3s ease;
+}
+
+form input[type="text"]:focus {
+    border-color: #007bff;
+    outline: none;
+}
+
+
+
+/* Card */
+.card {
+    max-width: 500px;
+    margin: 50px auto;
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+/* Títulos dentro de la Card */
+.card h2 {
+    color: #007bff;
+    margin-bottom: 20px;
+}
+
+/* Estilos del formulario dentro de la Card */
+.card form {
+    display: flex;
+    flex-direction: column;
+}
+
+.card form input[type="text"] {
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    transition: border-color 0.3s ease;
+}
+
+.card form input[type="text"]:focus {
+    border-color: #007bff;
+    outline: none;
+}
+
+/* Estilos del botón dentro de la Card */
+.card form button {
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0;
+    border: none;
+    border-radius: 5px;
+    background-color: #007bff;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.card form button:hover {
+    background-color: #0056b3;
+}
