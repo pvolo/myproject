@@ -6,106 +6,83 @@
 }
 
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Arial', sans-serif;
     background-color: #f4f4f9;
     color: #333;
     padding: 20px;
 }
 
-/* Encabezado */
-h1 {
-    color: #007bff;
+/* Contenedor general */
+.container {
+    max-width: 400px;
+    margin: 50px auto;
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Títulos */
+h1, h2 {
     text-align: center;
+    color: #007bff;
     margin-bottom: 20px;
 }
 
-/* Contenedor principal */
-.container {
-    max-width: 800px;
-    margin: 0 auto;
-    background-color: white;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
-}
-
-/* Enlaces */
-a {
-    color: #007bff;
-    text-decoration: none;
-}
-
-a:hover {
-    text-decoration: underline;
-}
-
-/* Estilo del botón Admin */
-button.admin-btn, a.admin-btn {
-    background-color: #007bff;
-    color: white;
-    padding: 10px 20px;
-    text-decoration: none;
-    border-radius: 5px;
-    font-size: 14px;
-    display: inline-block;
-    text-align: center;
-}
-
-button.admin-btn:hover, a.admin-btn:hover {
-    background-color: #0056b3;
-}
-
-/* Formularios de inicio de sesión y registro */
+/* Estilos del formulario */
 form {
-    margin: 20px 0;
+    display: flex;
+    flex-direction: column;
 }
 
-form input[type="text"], form input[type="password"], form input[type="email"], form input[type="submit"] {
+form input[type="text"],
+form input[type="password"],
+form input[type="email"] {
     width: 100%;
-    padding: 10px;
+    padding: 12px;
     margin: 10px 0;
     border: 1px solid #ccc;
     border-radius: 5px;
     font-size: 16px;
+    transition: border-color 0.3s ease;
 }
 
+form input[type="text"]:focus,
+form input[type="password"]:focus,
+form input[type="email"]:focus {
+    border-color: #007bff;
+    outline: none;
+}
+
+/* Estilos del botón de enviar */
 form input[type="submit"] {
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0;
+    border: none;
+    border-radius: 5px;
     background-color: #007bff;
     color: white;
+    font-size: 16px;
     cursor: pointer;
+    transition: background-color 0.3s ease;
 }
 
 form input[type="submit"]:hover {
     background-color: #0056b3;
 }
 
-form p {
-    text-align: center;
-    margin-top: 20px;
-}
-
-/* Estilo de los mensajes */
-p {
-    font-size: 16px;
-    text-align: center;
-    margin: 20px 0;
-}
-
-p a {
-    font-weight: bold;
-}
-
-/* Estilo para el login y el registro */
+/* Estilo de los enlaces de login y registro */
 .auth-links {
     display: flex;
-    justify-content: center;
-    gap: 20px;
+    justify-content: space-between;
+    margin-top: 20px;
+    font-size: 14px;
 }
 
 .auth-links a {
     color: #007bff;
     text-decoration: none;
-    font-weight: bold;
 }
 
 .auth-links a:hover {
@@ -136,3 +113,5 @@ p a {
     background-color: #fff3cd;
     color: #856404;
 }
+
+
