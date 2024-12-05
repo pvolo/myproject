@@ -1,0 +1,138 @@
+/* Reset básico para evitar conflictos con el estilo por defecto del navegador */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f9;
+    color: #333;
+    padding: 20px;
+}
+
+/* Encabezado */
+h1 {
+    color: #007bff;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* Contenedor principal */
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Enlaces */
+a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* Estilo del botón Admin */
+button.admin-btn, a.admin-btn {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 14px;
+    display: inline-block;
+    text-align: center;
+}
+
+button.admin-btn:hover, a.admin-btn:hover {
+    background-color: #0056b3;
+}
+
+/* Formularios de inicio de sesión y registro */
+form {
+    margin: 20px 0;
+}
+
+form input[type="text"], form input[type="password"], form input[type="email"], form input[type="submit"] {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+form input[type="submit"] {
+    background-color: #007bff;
+    color: white;
+    cursor: pointer;
+}
+
+form input[type="submit"]:hover {
+    background-color: #0056b3;
+}
+
+form p {
+    text-align: center;
+    margin-top: 20px;
+}
+
+/* Estilo de los mensajes */
+p {
+    font-size: 16px;
+    text-align: center;
+    margin: 20px 0;
+}
+
+p a {
+    font-weight: bold;
+}
+
+/* Estilo para el login y el registro */
+.auth-links {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.auth-links a {
+    color: #007bff;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.auth-links a:hover {
+    text-decoration: underline;
+}
+
+/* Mensajes de error o éxito */
+.alert {
+    background-color: #f8d7da;
+    color: #721c24;
+    padding: 10px;
+    border-radius: 5px;
+    margin-top: 20px;
+    text-align: center;
+}
+
+.alert.success {
+    background-color: #d4edda;
+    color: #155724;
+}
+
+.alert.info {
+    background-color: #d1ecf1;
+    color: #0c5460;
+}
+
+.alert.warning {
+    background-color: #fff3cd;
+    color: #856404;
+}
